@@ -1,12 +1,14 @@
 package dto.parkingspot;
 
+import enums.ParkingSpotEnum;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class DisplayBoard {
 
     private static volatile DisplayBoard displayBoard;
-    private Map<ParkingSpot, Integer> freeParkingSpots;
+    private final Map<ParkingSpotEnum, Integer> freeParkingSpots;
 
     private DisplayBoard() {
         freeParkingSpots = new HashMap<>();
@@ -23,7 +25,7 @@ public class DisplayBoard {
         return displayBoard;
     }
 
-    public Map<ParkingSpot, Integer> getFreeParkingSpots() {
+    public Map<ParkingSpotEnum, Integer> getFreeParkingSpots() {
         return freeParkingSpots;
     }
 }
