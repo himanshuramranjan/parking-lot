@@ -17,7 +17,7 @@ public class ParkingSpotServiceImpl implements ParkingSpotService {
     @Override
     public ParkingSpot create(ParkingSpotEnum parkingSpotEnum, Integer floor) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         ParkingSpot parkingSpot = (ParkingSpot) parkingSpotEnum.getParkingSpot().getConstructor(Integer.class).newInstance(floor);
-        ParkingLot.getInstance("Tech Park").getFreeParkingSpots().get(parkingSpotEnum).add(parkingSpot);
+        ParkingLot.getInstance().getFreeParkingSpots().get(parkingSpotEnum).add(parkingSpot);
         displayService.update(parkingSpotEnum, 1);
         return parkingSpot;
     }

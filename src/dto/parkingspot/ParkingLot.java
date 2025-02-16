@@ -17,15 +17,13 @@ public class ParkingLot {
 
     private static volatile ParkingLot parkingLot;
 
-    private ParkingLot(String name) {
-        this.name = name;
-    }
+    private ParkingLot() {}
 
-    public static ParkingLot getInstance(String name) {
+    public static ParkingLot getInstance() {
         if(parkingLot == null) {
             synchronized (ParkingLot.class) {
                 if(parkingLot == null) {
-                    parkingLot = new ParkingLot(name);
+                    parkingLot = new ParkingLot();
                 }
             }
         }
