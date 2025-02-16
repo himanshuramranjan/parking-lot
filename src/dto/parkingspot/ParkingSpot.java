@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class ParkingSpot {
 
     private static final AtomicInteger count = new AtomicInteger();
-    int id;
-    int floorNum;
-    int amount;
-    boolean isFree;
+    private int id;
+    private int floorNum;
+    protected int amount;
+    private boolean isFree;
 
     protected ParkingSpot(int floorNum, int amount) {
         this.id = count.incrementAndGet();
@@ -40,4 +40,6 @@ public abstract class ParkingSpot {
     public void setFree(boolean free) {
         isFree = free;
     }
+
+    public abstract int cost(int parkingHours);
 }
