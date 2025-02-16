@@ -2,6 +2,7 @@ package dto.service;
 
 import dto.accounts.ParkingTicket;
 import dto.exceptions.InvalidTicketException;
+import dto.exceptions.SpotNotFoundException;
 import dto.interfaces.DisplayService;
 import dto.interfaces.ParkingService;
 import dto.parkingStrategy.Strategy;
@@ -24,28 +25,24 @@ public class ParkingServiceImpl implements ParkingService {
         displayService = new DisplayServiceImpl();
     }
     @Override
-    public ParkingTicket entry(Vehicle vehicle) {
+    public ParkingTicket entry(Vehicle vehicle) throws SpotNotFoundException {
         ParkingSpotEnum parkingSpotEnum = vehicle.getParkingSpotEnum();
         List<ParkingSpot> freeParkingSpots = parkingLot.getFreeParkingSpots().get(parkingSpotEnum);
         List<ParkingSpot> occupiedParkingSpots = parkingLot.getFreeParkingSpots().get(parkingSpotEnum);
 
-        try {
-            ParkingSpot parkingSpot = parkingStrategy.findParkingSpot(parkingSpotEnum);
+        ParkingSpot parkingSpot = parkingStrategy.findParkingSpot(parkingSpotEnum);
 
-            if(parkingSpot.isFree()) {
-                synchronized (parkingSpot) {
-                    if(parkingSpot.isFree()) {
-                        parkingSpot.setFree(false);
-                        freeParkingSpots.remove(parkingSpot);
-                        occupiedParkingSpots.add(parkingSpot);
-                        return new ParkingTicket(vehicle, parkingSpot);
-                    }
-                    // If one of the thread doesn't make it to the 'if' condition
-                    entry(vehicle);
+        if(parkingSpot.isFree()) {
+            synchronized (parkingSpot) {
+                if(parkingSpot.isFree()) {
+                    parkingSpot.setFree(false);
+                    freeParkingSpots.remove(parkingSpot);
+                    occupiedParkingSpots.add(parkingSpot);
+                    return new ParkingTicket(vehicle, parkingSpot);
                 }
+                // If one of the thread doesn't make it to the 'if' condition
+                entry(vehicle);
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
         return null;
     }
