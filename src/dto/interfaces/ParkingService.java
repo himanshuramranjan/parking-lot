@@ -1,6 +1,6 @@
 package dto.interfaces;
 
-import dto.accounts.ParkingTicket;
+import dto.parkingspot.ParkingTicket;
 import dto.exceptions.InvalidTicketException;
 import dto.exceptions.SpotNotFoundException;
 import dto.vehicle.Vehicle;

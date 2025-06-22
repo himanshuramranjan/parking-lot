@@ -1,13 +1,12 @@
 package dto.vehicle;
 
-import dto.parkingspot.ParkingLot;
 import enums.ParkingSpotEnum;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Vehicle {
 
-    private final AtomicInteger count = new AtomicInteger();
+    private static final AtomicInteger count = new AtomicInteger();
 
     int id;
     ParkingSpotEnum parkingSpotEnum;

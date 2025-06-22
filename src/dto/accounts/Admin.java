@@ -1,6 +1,7 @@
 package dto.accounts;
 
-import dto.parkingspot.ParkingLot;
+
+import dto.ParkingLot;
 
 public class Admin extends Account {
     private ParkingLot parkingLot = ParkingLot.getInstance();

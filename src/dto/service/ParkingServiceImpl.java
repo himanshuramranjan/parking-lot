@@ -1,12 +1,12 @@
 package dto.service;
 
-import dto.accounts.ParkingTicket;
+import dto.parkingspot.ParkingTicket;
 import dto.exceptions.InvalidTicketException;
 import dto.exceptions.SpotNotFoundException;
 import dto.interfaces.DisplayService;
 import dto.interfaces.ParkingService;
 import dto.parkingStrategy.Strategy;
-import dto.parkingspot.ParkingLot;
+import dto.ParkingLot;
 import dto.parkingspot.ParkingSpot;
 import dto.vehicle.Vehicle;
 import enums.ParkingSpotEnum;

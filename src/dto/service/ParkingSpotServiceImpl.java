@@ -1,12 +1,9 @@
 package dto.service;
 
-import dto.accounts.ParkingTicket;
 import dto.interfaces.DisplayService;
-import dto.interfaces.ParkingService;
 import dto.interfaces.ParkingSpotService;
-import dto.parkingspot.ParkingLot;
+import dto.ParkingLot;
 import dto.parkingspot.ParkingSpot;
-import dto.vehicle.Vehicle;
 import enums.ParkingSpotEnum;
 
 import java.lang.reflect.InvocationTargetException;

@@ -1,7 +1,7 @@
 package dto.parkingStrategy;
 
 import dto.exceptions.SpotNotFoundException;
-import dto.parkingspot.ParkingLot;
+import dto.ParkingLot;
 import dto.parkingspot.ParkingSpot;
 import enums.ParkingSpotEnum;
 

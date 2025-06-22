@@ -1,4 +1,4 @@
-package dto;
+package dto.models;
 
 public class EntrancePanel {
     String name;

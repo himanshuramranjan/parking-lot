@@ -1,4 +1,4 @@
-package dto.accounts;
+package dto.parkingspot;
 
 import dto.parkingspot.ParkingSpot;
 import dto.vehicle.Vehicle;

@@ -1,7 +1,9 @@
-package dto.parkingspot;
+package dto;
 
-import dto.EntrancePanel;
-import dto.ExitPanel;
+import dto.models.EntrancePanel;
+import dto.models.ExitPanel;
+import dto.parkingspot.DisplayBoard;
+import dto.parkingspot.ParkingSpot;
 import enums.ParkingSpotEnum;
 
 import java.util.List;
